@@ -1,0 +1,26 @@
+.\" Manpage for _printf
+.TH _PRINTF 3 "August 2025" "Holberton Project" 
+.SH NAME
+_printf \- simplified printf function
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.BI "int _printf(const char *format, ...);"
+.SH DESCRIPTION
+The
+.B _printf
+function thaat prints out strings, integers and etc. just like printf() from the standard stdio.h library.
+.TP
+.B %c
+Print a single character.
+.TP
+.B %s
+Print a null-terminated string. If the argument is
+.B NULL ,
+NULL is printed.
+.TP
+.B %%
+Print % itself like a stirng character.
+.TP
+.B %d, %i
+Print an int or double respectively.
