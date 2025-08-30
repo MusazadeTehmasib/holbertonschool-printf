@@ -32,6 +32,11 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (!format[i]) /* handle lone '%' at end */
+			{
+				va_end(args);
+				return (-1);
+			}
 			if (format[i] == 'c') /* character */
 				count += _putchar(va_arg(args, int));
 			else if (format[i] == 's') /* string */
