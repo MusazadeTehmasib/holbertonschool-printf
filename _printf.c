@@ -13,6 +13,32 @@ int _putchar(char c)
 
 
 /**
+ * print_number - prints an integer
+ * @n: the integer to print
+ * Return: number of characters printed
+ */
+int print_num(int n)
+{
+	int count = 0;
+	unsigned int num;
+
+	if (n < 0)
+	{
+		count += _putchar('-');
+		num = -n;
+	}
+	else
+		num = n;
+
+	if (num / 10)
+		count += print_num(num / 10);
+
+	count += _putchar((num % 10) + '0');
+	return (count);
+}
+
+
+/**
  * _printf - simplified printf function
  * @format: format string
  * Return: number of characters printed
@@ -52,6 +78,8 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == '%')
 				count += _putchar('%');
+			else if (format[i] == 'd' || format[i] == 'i') /* integer */
+				count += print_num(va_arg(args, int));
 			else
 			{
 				count += _putchar('%');
