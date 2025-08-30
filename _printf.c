@@ -20,6 +20,20 @@ int print_string(char *str)
 	return (count);
 }
 
+
+/**
+ * _putchar - writes a character to stdout
+ * @c: the character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+
 /**
  * handle_format - handles format specifiers
  * @fmt: format specifier character
