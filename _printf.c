@@ -11,11 +11,14 @@ int _putchar(char c)
 	return write(1, &c, 1);
 }
 
+
 /**
  * _printf - simplified printf function
  * @format: format string
  * Return: number of characters printed
  */
+
+
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -32,14 +35,14 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (!format[i]) /* handle lone '%' at end */
+			if (!format[i])
 			{
 				va_end(args);
 				return (-1);
 			}
-			if (format[i] == 'c') /* character */
+			if (format[i] == 'c')
 				count += _putchar(va_arg(args, int));
-			else if (format[i] == 's') /* string */
+			else if (format[i] == 's')
 			{
 				str = va_arg(args, char *);
 				if (!str)
@@ -47,7 +50,7 @@ int _printf(const char *format, ...)
 				while (*str)
 					count += _putchar(*str++);
 			}
-			else if (format[i] == '%') /* percent sign */
+			else if (format[i] == '%')
 				count += _putchar('%');
 			else
 			{
